@@ -1,0 +1,24 @@
+/vendor/
+
+# Arquivo de variáveis de ambiente
+
+.env
+
+# Arquivos de ambiente locais
+
+.env.local
+.env.*.local
+
+# Arquivos do sistema operacional
+
+.DS_Store
+Thumbs.db
+
+# Arquivos de configuração de IDE
+
+.idea/
+.vscode/
+
+# Arquivos de log
+
+*.log
