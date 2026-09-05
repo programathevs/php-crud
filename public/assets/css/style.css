@@ -6,7 +6,6 @@
   /* Cores de Marca / Ações */
   --primary: #16a34a;
   --primary-hover: #15803d;
-  --primary-light: #dcfce7;
   --info: #2563eb;
   --danger: #e11d48;
 
@@ -28,7 +27,6 @@
   /* Textos */
   --text-main: #0f172a;
   --text-muted: #64748b;
-  --text-disabled: #94a3b8;
   --text-light: #ffffff;
   --text-gray: #a5a5a5;
 
@@ -36,10 +34,7 @@
   --border-color: #e2e8f0;
   --border-input: #cbd5e1;
 
-  /* Espaçamentos e Arredondamento */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
+  /* Radius */
   --radius-full: 9999px;
 
   /* Sombras */
