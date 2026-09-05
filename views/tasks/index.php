@@ -50,11 +50,32 @@ require __DIR__ . '/../partials/header.php';
                 </thead>
                 <tbody>
                     <?php foreach ($tasks as $task): ?>
+                        <?php
+                        $id = $task['id'] ?? '';
+                        $tituloTarefa = $task['titulo'] ?? $task['nome'] ?? $task['descricao'] ?? '';
+                        $statusRaw = strtolower($task['status'] ?? 'pendente');
+
+                        // Verifica se está concluída ou finalizada
+                        $isDone = in_array($statusRaw, ['finalizada', 'concluida']);
+
+                        // Classes dinâmicas
+                        $taskClass = $isDone ? 'task-done' : '';
+                        $badgeClass = $isDone ? 'badge-done' : 'badge-pending';
+                        $statusLabel = $isDone ? 'Concluída' : 'Pendente';
+                        ?>
                         <tr>
-                            <td><?= htmlspecialchars($task['id'] ?? '') ?></td>
-                            <td><?= htmlspecialchars($task['titulo'] ?? $task['nome'] ?? $task['descricao'] ?? '') ?></td>
-                            <td><?= htmlspecialchars($task['status'] ?? 'Pendente') ?></td>
-                            <td>
+                            <td class="col-id">#<?= htmlspecialchars($task['id'] ?? '') ?></td>
+                            <td class="col-task <?= $taskClass ?>">
+                                <?= htmlspecialchars($tituloTarefa) ?>
+                            </td>
+
+                            <td class="col-status status">
+                                <span class="badge <?= $badgeClass ?>">
+                                    <?= htmlspecialchars($statusLabel) ?>
+                                </span>
+                            </td>
+
+                            <td class="col-actions">
                                 <button onclick="openEditModal(this)" class="btn-action btn-edit"
                                     data-id="<?= htmlspecialchars($task['id'] ?? '') ?>"
                                     data-titulo="<?= htmlspecialchars($task['titulo'] ?? '') ?>"
@@ -65,12 +86,21 @@ require __DIR__ . '/../partials/header.php';
                                     </svg>
                                     Editar
                                 </button>
-                                <a href="/tasks/delete.php?id=<?= htmlspecialchars($task['id'] ?? '') ?>" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</a>
+                                <a href="delete.php?id=<?= urlencode($task['id'] ?? '') ?>"
+                                    onclick="return confirm('Deseja realmente excluir esta tarefa?');"
+                                    class="btn-action btn-delete">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polyline points="3 6 5 6 21 6"></polyline>
+                                        <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                                    </svg>
+                                    Excluir
+                                </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
+        </div>
     </section>
 </main>
 
