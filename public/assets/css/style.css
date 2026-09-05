@@ -1,3 +1,64 @@
+:root {
+  /* Fonts */
+  --font-primary: "Inter", system-ui, -apple-system, sans-serif;
+  --font-secondary: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Cores de Marca / Ações */
+  --primary: #16a34a;
+  --primary-hover: #15803d;
+  --primary-light: #dcfce7;
+  --info: #2563eb;
+  --danger: #e11d48;
+
+  /* Badges de Status */
+  --badge-pending-bg: #fef3c7;
+  --badge-pending-text: #d97706;
+  --badge-pending-border: #fde68a;
+
+  --badge-done-bg: #d1fae5;
+  --badge-done-text: #059669;
+  --badge-done-border: #a7f3d0;
+
+  /* Neutros e Superfícies */
+  --bg-body: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-input: #ffffff;
+  --bg-badge-neutral: #f1f5f9;
+
+  /* Textos */
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-disabled: #94a3b8;
+  --text-light: #ffffff;
+  --text-gray: #a5a5a5;
+
+  /* Bordas e Divisores */
+  --border-color: #e2e8f0;
+  --border-input: #cbd5e1;
+
+  /* Espaçamentos e Arredondamento */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Sombras */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+}
+
+/* Fonte Sans-Serif Principal */
+@font-face {
+  font-family: "FiraCode";
+  src: url("../fonts/FiraCode.ttf");
+}
+
+@font-face {
+  font-family: "PlusJakartaSans";
+  src: url("../fonts/PlusJakartaSans.ttf");
+}
+
 *,
 *::after,
 *::before {
@@ -11,55 +72,74 @@
 html,
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  line-height: 1.6;
+  background-color: var(--bg-body);
+  color: var(--text-main);
   width: 100%;
   height: 100%;
+  padding: 30px 50px;
 }
 
-h1 {
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
+.header {
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-color);
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th,
-td {
-  text-align: left;
-  padding: 10px 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  background-color: #f7f7f7;
-}
-
-tr:hover {
-  background-color: #fafafa;
-}
-
-.empty-msg {
-  color: #777;
-  font-style: italic;
-  margin-top: 20px;
-}
-
-footer {
-  background-color: #f4f4f4;
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  border-top: 1px solid #ccc;
-}
-
-footer a {
-  color: #333;
-  text-decoration: none;
+.header h1 {
+  font-family: var(--font-primary);
+  font-size: 2.5rem;
   font-weight: bold;
+}
+
+.header p {
+  color: var(--text-muted);
+}
+
+.card-create-task {
+  margin-top: 20px;
+  background-color: var(--bg-badge-neutral);
+  border: 1px solid var(--border-color);
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.card-title {
+  letter-spacing: 1.5px;
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+}
+
+.card-title span {
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.input-task {
+  width: calc(100% - 105px);
+  padding: 10px 15px;
+  border-radius: 5px;
+  border: 1px solid var(--border-input);
+}
+
+.btn-add {
+  padding: 10px 15px;
+  width: 100px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 5px;
+  color: var(--text-light);
+}
+
+.card-create-task p {
+  font-style: italic;
+  color: var(--text-gray);
+  font-size: 0.875rem;
+}
+
+.list-title {
+  font-family: var(--font-primary);
 }
