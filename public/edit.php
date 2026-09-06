@@ -16,7 +16,6 @@ if (empty($titulo)) {
 } elseif (preg_match('/\d/', $titulo)) {
   $_SESSION['erro_modal'] = "O título não pode conter números!";
 } else {
-  $db = Database::getConnection();
   $sql = "UPDATE tarefas SET titulo = :titulo, status = :status WHERE id = :id";
   $stmt = $db->prepare($sql);
 
