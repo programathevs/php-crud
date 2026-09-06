@@ -21,7 +21,7 @@
         <?php if (isset($_SESSION['erro_modal'])): ?>
 
           <p style="color: red; margin-bottom: 10px;" id="mensagem-erro">
-            <?= $_SESSION['erro_modal'] ?>
+            <?= htmlspecialchars($_SESSION['erro_modal'], ENT_QUOTES, 'UTF-8') ?>
           </p>
 
         <?php endif; ?>
