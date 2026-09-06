@@ -5,12 +5,14 @@ require_once __DIR__ . '/../config/database.php';
 
 $db = Database::getConnection();
 
-$id = trim($_POST['id'] ?? '');
+$id = (int) ($_POST['id'] ?? 0);
 $titulo = trim($_POST['titulo'] ?? '');
 $status = trim($_POST['status'] ?? '');
 
 if (empty($titulo)) {
   $_SESSION['erro_modal'] = "O título não pode ficar vazio!";
+} elseif ($id <= 0) {
+  $_SESSION['erro_modal'] = "ID inválido para atualização!";
 } elseif (preg_match('/\d/', $titulo)) {
   $_SESSION['erro_modal'] = "O título não pode conter números!";
 } else {
@@ -20,7 +22,7 @@ if (empty($titulo)) {
 
   $stmt->execute([
     ':titulo' => $titulo,
-    ':status' => 'pendente',
+    ':status' => $status,
     ':id' => $id
   ]);
 }
