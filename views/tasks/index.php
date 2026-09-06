@@ -8,7 +8,6 @@ require __DIR__ . '/../partials/header.php';
     <section class="card-create-task">
         <h2 class="card-title"><span>+</span> ADICIONAR NOVA TAREFA</h2>
         <form action="create.php" method="POST" class="task-form">
-            <input type="hidden" name="acao" value="adicionar">
 
             <div class="form-group">
                 <input

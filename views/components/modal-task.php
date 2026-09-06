@@ -7,7 +7,6 @@
 
       <form action="edit.php" method="POST" id="taskForm">
         <input type="hidden" name="id" id="taskId" value="">
-        <input type="hidden" name="acao" id="formAction" value="adicionar">
 
         <div class="form-field">
           <label for="titulo">Título da Tarefa</label>

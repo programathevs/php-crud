@@ -11,7 +11,6 @@ if (empty($titulo)) {
 } elseif (preg_match('/\d/', $titulo)) {
   $_SESSION['erro'] = "O título não pode conter números!";
 } else {
-  $db = Database::getConnection();
   $sql = "INSERT INTO tarefas (titulo, status) VALUES (:titulo, :status)";
   $stmt = $db->prepare($sql);
 
